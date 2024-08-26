@@ -176,3 +176,49 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+
+/*** Add custom post types and taxonomies */
+add_action('init', function() {
+	register_post_type('portfolio', [
+		'label' => __('Portfolio', 'txtdomain'),
+		'public' => true,
+		'menu_position' => 5,
+		'menu_icon' => 'dashicons-book',
+		'supports' => ['title', 'editor', 'thumbnail', 'author', 'revisions', 'comments'],
+		'show_in_rest' => true,
+		'rewrite' => ['slug' => 'portfolio'],
+		'taxonomies' => ['portfolio_genre'],
+		'labels' => [
+			'singular_name' => __('Portfolio', 'txtdomain'),
+			'add_new_item' => __('Add new portfolio', 'txtdomain'),
+			'new_item' => __('New portfolio', 'txtdomain'),
+			'view_item' => __('View portfolios', 'txtdomain'),
+			'not_found' => __('No portfolios found', 'txtdomain'),
+			'not_found_in_trash' => __('No portfolios found in trash', 'txtdomain'),
+			'all_items' => __('All portfolios', 'txtdomain'),
+			'insert_into_item' => __('Insert into portfolio', 'txtdomain')
+		],		
+	]);
+ 
+	register_taxonomy('portfolio_genre', ['portfolio'], [
+		'label' => __('Genres', 'txtdomain'),
+		'hierarchical' => true,
+		'rewrite' => ['slug' => 'portfolio-genre'],
+		'show_admin_column' => true,
+		'show_in_rest' => true,
+		'labels' => [
+			'singular_name' => __('Genre', 'txtdomain'),
+			'all_items' => __('All Genres', 'txtdomain'),
+			'edit_item' => __('Edit Genre', 'txtdomain'),
+			'view_item' => __('View Genre', 'txtdomain'),
+			'update_item' => __('Update Genre', 'txtdomain'),
+			'add_new_item' => __('Add New Genre', 'txtdomain'),
+			'new_item_name' => __('New Genre Name', 'txtdomain'),
+			'search_items' => __('Search Genres', 'txtdomain'),
+			'parent_item' => __('Parent Genre', 'txtdomain'),
+			'parent_item_colon' => __('Parent Genre:', 'txtdomain'),
+			'not_found' => __('No Genres found', 'txtdomain'),
+		]
+	]);
+	register_taxonomy_for_object_type('portfolio_genre', 'portfolio');
+});
