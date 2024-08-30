@@ -1,7 +1,21 @@
 @import '_typography';
 @import '_variables';
+@import '_portfolio';
 
+.entry-content {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 50px 0;
+}
 
+.fullwidth {
+    width: 100%;
+    padding: 0 50px;
+}
+
+header.entry-header,
+aside#secondary,
 header#masthead {
-    background: $primary-color;
+    display: none;
 }

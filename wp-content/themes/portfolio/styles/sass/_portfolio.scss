@@ -1,0 +1,20 @@
+.fullwidth {
+	.posts {
+		display: flex;
+		justify-content: space-between;
+		.post {
+			width: 30%;
+
+			.languages,
+			.tools,
+			.plugins {
+			    font-size: 11px;
+			    margin-bottom: 10px;
+			}
+
+			.disclaimer {
+				font-size: 10px;
+			}
+		}
+	}
+}

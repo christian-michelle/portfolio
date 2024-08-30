@@ -1,5 +1,40 @@
+p {
+  font-size: 14px;
+}
+
+.fullwidth .posts {
+  display: flex;
+  justify-content: space-between;
+}
+.fullwidth .posts .post {
+  width: 30%;
+}
+.fullwidth .posts .post .languages,
+.fullwidth .posts .post .tools,
+.fullwidth .posts .post .plugins {
+  font-size: 11px;
+  margin-bottom: 10px;
+}
+.fullwidth .posts .post .disclaimer {
+  font-size: 10px;
+}
+
+.entry-content {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+
+.fullwidth {
+  width: 100%;
+  padding: 0 50px;
+}
+
+header.entry-header,
+aside#secondary,
 header#masthead {
-  background: yellow;
+  display: none;
 }
 
 /*# sourceMappingURL=styles.css.map */
