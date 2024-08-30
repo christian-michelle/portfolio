@@ -222,3 +222,23 @@ add_action('init', function() {
 	]);
 	register_taxonomy_for_object_type('portfolio_genre', 'portfolio');
 });
+
+// Add custom blocks - ACF Blocks 
+add_action('acf/init', 'tm_register_blocks');
+function tm_register_blocks() {
+
+  // check function exists.
+  if( function_exists('acf_register_block_type') ) {
+
+  // Portfolio Block
+  acf_register_block_type(array(
+    'name'        => 'portfolio-block',
+    'title'       => __( 'Portfolio Block'),
+    'description'   => __( 'Portfolio Block.'),
+    'render_template'   => 'template-parts/blocks/portfolio-block/portfolio-block.php',
+    'category'      => 'formatting',
+    'icon'        => 'archive',
+    'keywords'      => array( 'portfolio-block' ),
+  ));
+  }
+}
